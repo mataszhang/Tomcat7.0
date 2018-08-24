@@ -1,0 +1,33 @@
+# Created by .ignore support plugin (hsz.mobi)
+### 聚合maven项目ignore template
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+/.idea/
+*/.idea/
+*/*.iml
+work
+build.properties
+mvn.properties
+.checkstyle
+.classpath
+.fbprefs
+.project
+.settings
+*.asc
+*.jj
+*.tmp
+maven-ant-tasks-*.jar
+thumbs.db
+Thumbs.db
+bin/setenv.*
+java/org/apache/catalina/startup/catalina.properties
+modules/jdbc-pool/bin
+modules/jdbc-pool/includes
+webapps/docs/jdbc-pool.xml
