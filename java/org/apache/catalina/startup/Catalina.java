@@ -304,7 +304,7 @@ public class Catalina {
      * Create and configure the Digester we will be using for startup.
      */
     protected Digester createStartDigester() {
-        log.info("创建用于解析service.xml的Digester");
+        log.info("*******************创建用于解析service.xml的Digester");
 
         long t1 = System.currentTimeMillis();
         // Initialize the digester

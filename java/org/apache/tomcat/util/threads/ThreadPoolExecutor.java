@@ -31,8 +31,8 @@ import org.apache.tomcat.util.res.StringManager;
  * {@link #getSubmittedCount()} method, to be used to properly handle the work queue.
  * If a RejectedExecutionHandler is not specified a default one will be configured
  * and that one will always throw a RejectedExecutionException
- * @author fhanik
  *
+ * @author fhanik
  */
 public class ThreadPoolExecutor extends java.util.concurrent.ThreadPoolExecutor {
     /**
@@ -68,7 +68,7 @@ public class ThreadPoolExecutor extends java.util.concurrent.ThreadPoolExecutor 
     }
 
     public ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue, ThreadFactory threadFactory,
-            RejectedExecutionHandler handler) {
+                              RejectedExecutionHandler handler) {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory, handler);
         prestartAllCoreThreads();
     }
@@ -113,8 +113,8 @@ public class ThreadPoolExecutor extends java.util.concurrent.ThreadPoolExecutor 
                     // OK, it's really time to dispose of this thread
 
                     final String msg = sm.getString(
-                                    "threadPoolExecutor.threadStoppedToAvoidPotentialLeak",
-                                    Thread.currentThread().getName());
+                            "threadPoolExecutor.threadStoppedToAvoidPotentialLeak",
+                            Thread.currentThread().getName());
 
                     throw new StopPooledThreadException(msg);
                 }
@@ -124,7 +124,7 @@ public class ThreadPoolExecutor extends java.util.concurrent.ThreadPoolExecutor 
 
     protected boolean currentThreadShouldBeStopped() {
         if (threadRenewalDelay >= 0
-            && Thread.currentThread() instanceof TaskThread) {
+                && Thread.currentThread() instanceof TaskThread) {
             TaskThread currentTaskThread = (TaskThread) Thread.currentThread();
             if (currentTaskThread.getCreationTime() <
                     this.lastContextStoppedTime.longValue()) {
@@ -143,7 +143,7 @@ public class ThreadPoolExecutor extends java.util.concurrent.ThreadPoolExecutor 
      */
     @Override
     public void execute(Runnable command) {
-        execute(command,0,TimeUnit.MILLISECONDS);
+        execute(command, 0, TimeUnit.MILLISECONDS);
     }
 
     /**
@@ -157,8 +157,8 @@ public class ThreadPoolExecutor extends java.util.concurrent.ThreadPoolExecutor 
      *
      * @param command the runnable task
      * @throws RejectedExecutionException if this task cannot be
-     * accepted for execution - the queue is full
-     * @throws NullPointerException if command or unit is null
+     *                                    accepted for execution - the queue is full
+     * @throws NullPointerException       if command or unit is null
      */
     public void execute(Runnable command, long timeout, TimeUnit unit) {
         submittedCount.incrementAndGet();
@@ -166,7 +166,7 @@ public class ThreadPoolExecutor extends java.util.concurrent.ThreadPoolExecutor 
             super.execute(command);
         } catch (RejectedExecutionException rx) {
             if (super.getQueue() instanceof TaskQueue) {
-                final TaskQueue queue = (TaskQueue)super.getQueue();
+                final TaskQueue queue = (TaskQueue) super.getQueue();
                 try {
                     if (!queue.force(command, timeout, unit)) {
                         submittedCount.decrementAndGet();
@@ -216,8 +216,7 @@ public class ThreadPoolExecutor extends java.util.concurrent.ThreadPoolExecutor 
 
     private static class RejectHandler implements RejectedExecutionHandler {
         @Override
-        public void rejectedExecution(Runnable r,
-                java.util.concurrent.ThreadPoolExecutor executor) {
+        public void rejectedExecution(Runnable r, java.util.concurrent.ThreadPoolExecutor executor) {
             throw new RejectedExecutionException();
         }
 
