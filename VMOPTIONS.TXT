@@ -8,9 +8,9 @@
 
 =========================================
 
--Dcatalina.home=D:/IdeaProjects/apache-tomcat-7.0.90-src
--Dcatalina.base=D:/IdeaProjects/apache-tomcat-7.0.90-src
--Djava.endorsed.dirs=D:/IdeaProjects/apache-tomcat-7.0.90-src/endorsed
--Djava.io.tmpdir=D:/IdeaProjects/apache-tomcat-7.0.90-src/temp
+-Dcatalina.home=D:/IdeaProjects/Tomcat7.0
+-Dcatalina.base=D:/IdeaProjects/Tomcat7.0
+-Djava.endorsed.dirs=D:/IdeaProjects/Tomcat7.0/endorsed
+-Djava.io.tmpdir=D:/IdeaProjects/Tomcat7.0/temp
 -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
--Djava.util.logging.config.file=D:/IdeaProjects/apache-tomcat-7.0.90-src/conf/logging.properties
+-Djava.util.logging.config.file=D:/IdeaProjects/Tomcat7.0/conf/logging.properties
