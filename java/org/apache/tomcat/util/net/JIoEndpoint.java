@@ -261,7 +261,6 @@ public class JIoEndpoint extends AbstractEndpoint<Socket> {
                     // Configure the socket
                     if (running && !paused && setSocketOptions(socket)) {
                         // Hand this socket off to an appropriate processor
-
                         getLog().info("***********" + this.getThreadName()+"处理请求" +socket);
                         if (!processSocket(socket)) {
                             countDownConnection();

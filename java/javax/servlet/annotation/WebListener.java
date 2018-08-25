@@ -37,7 +37,7 @@ import java.lang.annotation.Target;
  * <br>
  * 
  * E.g. <code>@WebListener</code><br>
- * <code>public TestListener implements ServletContextListener {</code><br>
+ * <code>public TestListen implements ServletContextListener {</code><br>
  * 
  * @since Servlet 3.0
  */
