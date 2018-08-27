@@ -241,6 +241,7 @@ public abstract class AbstractProtocol<S> implements ProtocolHandler,
     }
 
     public void setBacklog(int backlog) {
+        getLog().info("*************通过<Connector>的acceptCount属性设置ServerSocket的backlog大小为=>" + backlog);
         endpoint.setBacklog(backlog);
     }
 

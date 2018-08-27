@@ -57,7 +57,6 @@ public class DefaultServerSocketFactory implements ServerSocketFactory {
 
     @Override
     public Socket acceptSocket(ServerSocket socket) throws IOException {
-        System.out.println("**************"+Thread.currentThread().getName()+",socket=>"  + socket.hashCode() +"准备好了");
         return socket.accept();
     }
 
