@@ -261,6 +261,7 @@ public class JIoEndpoint extends AbstractEndpoint<Socket> {
                     // Configure the socket
                     if (running && !paused && setSocketOptions(socket)) {
                         // Hand this socket off to an appropriate processor
+                        getLog().info("***********" + this.getThreadName()+"处理请求" +socket);
                         if (!processSocket(socket)) {
                             countDownConnection();
                             // Close socket right away
@@ -424,9 +425,11 @@ public class JIoEndpoint extends AbstractEndpoint<Socket> {
 
         if (serverSocket == null) {
             try {
+
                 if (getAddress() == null) {
-                    serverSocket = serverSocketFactory.createSocket(getPort(),
+                     serverSocket= serverSocketFactory.createSocket(getPort(),
                             getBacklog());
+                    log.info("***********创建ServerSocket=>"+serverSocket+". backlog=>" +getBacklog() +", maxConnections=>" +getMaxConnections());
                 } else {
                     serverSocket = serverSocketFactory.createSocket(getPort(),
                             getBacklog(), getAddress());
@@ -457,8 +460,6 @@ public class JIoEndpoint extends AbstractEndpoint<Socket> {
             if (getExecutor() == null) {
                 createExecutor();
             }
-
-            getLog().info("**************"+this.getClass().getSimpleName()+"使用的线程池为=>" +getExecutor());
 
             initializeConnectionLatch();
 
