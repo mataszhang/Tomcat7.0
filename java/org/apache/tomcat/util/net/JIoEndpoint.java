@@ -461,6 +461,8 @@ public class JIoEndpoint extends AbstractEndpoint<Socket> {
                 createExecutor();
             }
 
+            getLog().info("**************"+this.getClass().getSimpleName()+"使用的线程池为=>" +getExecutor());
+
             initializeConnectionLatch();
 
             startAcceptorThreads();
