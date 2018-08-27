@@ -632,7 +632,7 @@ public abstract class AbstractProtocol<S> implements ProtocolHandler,
         public SocketState process(SocketWrapper<S> wrapper,
                                    SocketStatus status) {
 
-            getLog().info("****************处理请求=>" +wrapper.getSocket()+",recycledProcessors=>" + recycledProcessors);
+            getLog().info("****************"+Thread.currentThread().getName()+"处理请求=>" +wrapper.getSocket()+",recycledProcessors=>" + recycledProcessors);
             if (wrapper == null) {
                 // Nothing to do. Socket has been closed.
                 return SocketState.CLOSED;

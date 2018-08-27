@@ -332,4 +332,22 @@ public class StandardThreadExecutor extends LifecycleMBeanBase
         name.append(getName());
         return name.toString();
     }
+
+    @Override
+    public String toString() {
+        return "StandardThreadExecutor{" +
+                "threadPriority=" + threadPriority +
+                ", daemon=" + daemon +
+                ", namePrefix='" + namePrefix + '\'' +
+                ", maxThreads=" + maxThreads +
+                ", minSpareThreads=" + minSpareThreads +
+                ", maxIdleTime=" + maxIdleTime +
+                ", executor=" + executor +
+                ", name='" + name + '\'' +
+                ", prestartminSpareThreads=" + prestartminSpareThreads +
+                ", maxQueueSize=" + maxQueueSize +
+                ", threadRenewalDelay=" + threadRenewalDelay +
+                ", taskqueue=" + taskqueue +
+                '}';
+    }
 }
