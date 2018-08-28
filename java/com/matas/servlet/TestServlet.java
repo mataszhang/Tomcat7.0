@@ -26,6 +26,7 @@ public class TestServlet extends HttpServlet {
         ServletOutputStream outputStream = resp.getOutputStream();
         OutputStreamWriter writer = new OutputStreamWriter(outputStream);
         writer.write("this is a test");
+        req.getSession().setAttribute("a","123");
         writer.flush();
         writer.close();
     }
